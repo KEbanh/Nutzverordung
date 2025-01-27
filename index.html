@@ -6,6 +6,12 @@
   <title>Hausordnung und EDV-Nutzungsverordnung</title>
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <style>
+    .logo {
+      max-width: 150px; /* Größe des Logos anpassen */
+      height: auto; /* Höhe wird automatisch angepasst */
+      margin: 0 auto 20px; /* Mittig und Abstand nach unten */
+      display: block;
+    }
     body {
       font-family: Arial, sans-serif;
       line-height: 1.6;
@@ -140,7 +146,9 @@
 
   <div class="container">
     <h2>Hausordnung und EDV-Nutzungsverordnung</h2>
-<center><img src="logo_u.jpg"></center>
+    <img src="logo_u.jpg" alt="Schullogo" class="logo">
+
+    
     <!-- Hausordnung Akkordeon -->
     <button class="accordion" onclick="toggleAccordion('hausordnung')">Hausordnung anzeigen</button>
     <div id="hausordnung" class="accordion-content">
