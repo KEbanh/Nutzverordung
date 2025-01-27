@@ -6,7 +6,7 @@
   <title>Hausordnung und EDV-Nutzungsverordnung</title>
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    .logo {
+  .logo {
       max-width: 180px; /* Größe des Logos anpassen */
       height: auto; /* Höhe wird automatisch angepasst */
       margin: 0 auto 20px; /* Mittig und Abstand nach unten */
@@ -147,8 +147,6 @@
   <div class="container">
     <h2>Hausordnung und EDV-Nutzungsverordnung</h2>
     <img src="logo_u.jpg" alt="Schullogo" class="logo">
-
-    
     <!-- Hausordnung Akkordeon -->
     <button class="accordion" onclick="toggleAccordion('hausordnung')">Hausordnung anzeigen</button>
     <div id="hausordnung" class="accordion-content">
@@ -203,9 +201,9 @@
     </div>
     <!-- Hausordnung Toggle Switch -->
     <div class="toggle-container">
-      <span class="toggle-label">Hausordnung gelesen:</span>
-      <input type="checkbox" id="hausordnungToggle" class="toggle-checkbox" required>
-    </div>
+      <label class="toggle-label" for="hausordnung">Hausordnung gelesen:</label>
+      <input type="checkbox" id="hausordnung" name="hausordnung" class="toggle-checkbox" required>
+  </div>
 
     <!-- EDV-Nutzungsordnung Akkordeon -->
     <button class="accordion" onclick="toggleAccordion('edv')">EDV-Nutzungsverordnung anzeigen</button>
@@ -241,34 +239,33 @@
 
     <!-- EDV-Nutzungsverordnung Toggle Switch -->
     <div class="toggle-container">
-      <span class="toggle-label">EDV-Nutzungsverordnung gelesen:</span>
-      <input type="checkbox" id="edvToggle" class="toggle-checkbox" required>
-    </div>
+      <label class="toggle-label" for="edv_nutzungsverordnung">EDV-Nutzungsverordnung gelesen:</label>
+      <input type="checkbox" id="edv_nutzungsverordnung" name="edv_nutzungsverordnung" class="toggle-checkbox" required>
+  </div>
 
     <!-- Formular -->
     <div class="form-section">
       <h3>Formular zur Anmeldung</h3>
-      <form id="formular" action="mailto:info@leo-statz-berufskolleg.de" method="POST" enctype="multipart/form-data" target="_blank">
+      <form id="formular" action="send_email.php" method="POST" enctype="multipart/form-data">
         <label for="name">Name</label>
         <input type="text" id="name" name="name" required>
-
+    
         <label for="email">E-Mail</label>
         <input type="email" id="email" name="email" required>
-
+    
         <label for="klasse">Klasse</label>
         <input type="text" id="klasse" name="klasse" required>
-
+    
         <label for="schuljahr">Schuljahr</label>
-        <select id="schuljahr" name="schuljahr" class="form-control" required>
-          <option value="">Bitte wählen...</option>
-          <option value="2025/26">2025/26</option>
-          <option value="2026/27">2026/27</option>
-          <option value="2027/28">2027/28</option>
-          <option value="2028/29">2028/29</option>
-          <option value="2029/30">2029/30</option>
+        <select id="schuljahr" name="schuljahr" required>
+            <option value="2025/26">2025/26</option>
+            <option value="2026/27">2026/27</option>
+            <option value="2027/28">2027/28</option>
+            <!-- Weitere Schuljahre hinzufügen -->
         </select>
 
-        <button type="submit" id="submitButton" disabled>Formular absenden</button>
+        <button type="submit" id="submitButton" disabled>Bestätigen</button>
+      
       </form>
     </div>
   </div>
