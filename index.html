@@ -6,6 +6,10 @@
   <title>Hausordnung und EDV-Nutzungsverordnung</title>
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <style>
+    .accordion-content {
+    display: none;  /* Akkordeon anfangs geschlossen */
+}
+
   .logo {
       max-width: 180px; /* Größe des Logos anpassen */
       height: auto; /* Höhe wird automatisch angepasst */
@@ -201,9 +205,9 @@
     </div>
     <!-- Hausordnung Toggle Switch -->
     <div class="toggle-container">
-      <label class="toggle-label" for="hausordnung">Hausordnung gelesen:</label>
-      <input type="checkbox" id="hausordnung" name="hausordnung" class="toggle-checkbox" required>
-  </div>
+      <label class="toggle-label" for="hausordnung_checkbox">Hausordnung gelesen:</label>
+      <input type="checkbox" id="hausordnung_checkbox" name="hausordnung" class="toggle-checkbox" required>
+    </div>
 
     <!-- EDV-Nutzungsordnung Akkordeon -->
     <button class="accordion" onclick="toggleAccordion('edv')">EDV-Nutzungsverordnung anzeigen</button>
@@ -239,9 +243,9 @@
 
     <!-- EDV-Nutzungsverordnung Toggle Switch -->
     <div class="toggle-container">
-      <label class="toggle-label" for="edv_nutzungsverordnung">EDV-Nutzungsverordnung gelesen:</label>
-      <input type="checkbox" id="edv_nutzungsverordnung" name="edv_nutzungsverordnung" class="toggle-checkbox" required>
-  </div>
+  <label class="toggle-label" for="edv_checkbox">EDV-Nutzungsverordnung gelesen:</label>
+  <input type="checkbox" id="edv_checkbox" name="edv_nutzungsverordnung" class="toggle-checkbox" required>
+</div>
 
     <!-- Formular -->
     <div class="form-section">
@@ -271,45 +275,77 @@
   </div>
 
   <script>
-    let hausordnungActivated = false;
-    let edvActivated = false;
 
-    function toggleAccordion(id) {
-      var content = document.getElementById(id);
-      var button = content.previousElementSibling;
-      content.style.display = content.style.display === "block" ? "none" : "block";
+let hausordnungActivated = false;
+let edvActivated = false;
 
-      // Überprüfen, ob beide Akkordeons aktiviert sind
-      if (id === "hausordnung") {
-        hausordnungActivated = content.style.display === "block";
-      } else if (id === "edv") {
-        edvActivated = content.style.display === "block";
-      }
-
-      // Wenn beide aktiviert sind, Formular absenden möglich machen
-      if (hausordnungActivated && edvActivated) {
+// Überprüfung, ob alle Felder ausgefüllt sind und die Bedingungen erfüllt sind
+function checkForm() {
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let klasse = document.getElementById("klasse").value;
+    let schuljahr = document.getElementById("schuljahr").value;
+    let hausordnung = document.getElementById("hausordnung_checkbox").checked;
+    let edv = document.getElementById("edv_checkbox").checked;
+    
+    // Überprüfen, ob alle Felder ausgefüllt und die Kontrollkästchen aktiviert sind
+    if (name && email && klasse && schuljahr && hausordnung && edv && hausordnungActivated && edvActivated) {
         document.getElementById("submitButton").disabled = false;
-      } else {
+    } else {
         document.getElementById("submitButton").disabled = true;
-      }
+    }
+}
+
+// Funktionen für die Akkordeons
+function toggleAccordion(id) {
+    var content = document.getElementById(id);
+    
+    // Wechsel zwischen anzeigen und verstecken des Akkordeons
+    if (content.style.display === "block") {
+        content.style.display = "none";
+    } else {
+        content.style.display = "block";
     }
 
-    // Event Listener für die Toggle Switches
-    document.getElementById("hausordnungToggle").addEventListener("change", function() {
-      if (this.checked && document.getElementById("edvToggle").checked) {
-        document.getElementById("submitButton").disabled = false;
-      } else {
-        document.getElementById("submitButton").disabled = true;
-      }
-    });
+    // Zustand des Akkordeons überprüfen
+    if (id === "hausordnung") {
+        hausordnungActivated = content.style.display === "block";
+    } else if (id === "edv") {
+        edvActivated = content.style.display === "block";
+    }
 
-    document.getElementById("edvToggle").addEventListener("change", function() {
-      if (this.checked && document.getElementById("hausordnungToggle").checked) {
-        document.getElementById("submitButton").disabled = false;
-      } else {
-        document.getElementById("submitButton").disabled = true;
-      }
-    });
+    // Formularstatus nach dem Toggle überprüfen
+    checkForm();
+}
+
+// Event Listener für alle Felder
+document.getElementById("name").addEventListener("input", checkForm);
+document.getElementById("email").addEventListener("input", checkForm);
+document.getElementById("klasse").addEventListener("input", checkForm);
+document.getElementById("schuljahr").addEventListener("change", checkForm);
+document.getElementById("hausordnung_checkbox").addEventListener("change", checkForm);
+document.getElementById("edv_checkbox").addEventListener("change", checkForm);
+
+// Überprüfen, ob das Akkordeon und die Checkboxen korrekt gesetzt sind
+window.onload = function() {
+    // Anfangszustand der Akkordeons setzen
+    var hausordnungContent = document.getElementById("hausordnung");
+    var edvContent = document.getElementById("edv");
+
+    // Sicherstellen, dass die Akkordeons zu Beginn geschlossen sind
+    hausordnungContent.style.display = "none";
+    edvContent.style.display = "none";
+    
+    hausordnungActivated = hausordnungContent.style.display === "block";
+    edvActivated = edvContent.style.display === "block";
+
+    // Formularstatus initial überprüfen
+    checkForm();
+};
+
+
+
+
   </script>
 
 </body>
