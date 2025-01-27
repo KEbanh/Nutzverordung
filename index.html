@@ -3,135 +3,309 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Einverständniserklärung - Leo-Statz-Berufskolleg</title>
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <title>Hausordnung und EDV-Nutzungsverordnung</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body {
-      padding-top: 20px;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
     }
+
     .container {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      width: 90%;
       max-width: 900px;
-      margin: auto;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
-    .header {
+
+    h2 {
+      color: #333;
       text-align: center;
-      margin-bottom: 30px;
     }
-    .header img {
-      max-width: 150px; /* Hier kannst du die Größe des Logos anpassen */
-      height: auto;
+
+    .accordion {
+      background-color: #007bff;
+      color: white;
+      padding: 10px;
+      width: 100%;
+      cursor: pointer;
+      border: none;
+      text-align: left;
+      border-radius: 5px;
+      margin-top: 15px;
+    }
+
+    .accordion-content {
+      display: none;
+      padding-left: 20px;
+      margin-top: 10px;
+      font-size: 0.9rem; /* Kleinere Schriftgröße */
+    }
+
+    .form-section {
+      margin-top: 20px;
+    }
+
+    .form-section label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    .form-section input, .form-section select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      box-sizing: border-box;
+    }
+
+    .form-section button {
+      background-color: #28a745;
+      color: white;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      margin-top: 15px;
+      width: 100%;
+      border-radius: 5px;
+    }
+
+    .form-section button:disabled {
+      background-color: #ccc;
+    }
+
+    /* Toggle Switch Style */
+    .toggle-container {
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .toggle-label {
+      font-size: 16px;
+    }
+
+    .toggle-checkbox {
+      appearance: none;
+      -webkit-appearance: none;
+      background-color: #ccc;
+      border-radius: 20px;
+      width: 50px;
+      height: 25px;
+      position: relative;
+      transition: background-color 0.3s;
+    }
+
+    .toggle-checkbox:checked {
+      background-color: #28a745;
+    }
+
+    .toggle-checkbox:checked::after {
+      left: 25px;
+    }
+
+    .toggle-checkbox::after {
+      content: "";
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 18px;
+      height: 18px;
+      background-color: white;
+      border-radius: 50%;
+      transition: left 0.3s;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 15px;
+      }
+
+      h2 {
+        font-size: 1.2rem;
+      }
     }
   </style>
 </head>
 <body>
+
   <div class="container">
-    <header class="header">
-      <!-- Logo der Schule (Leo-Statz-Berufskolleg) -->
-      <img src="logo_u.jpg" alt="Logo des Leo-Statz-Berufskollegs">
-      <h1>Einverständniserklärung</h1>
-      <p class="lead">Bitte bestätigen Sie, dass Sie mit den folgenden Regeln einverstanden sind, die für den Aufenthalt und die Nutzung der schulischen Einrichtungen des Leo-Statz-Berufskollegs gelten.</p>
-    </header>
-
-    <!-- Hausordnung -->
-    <div class="alert alert-info">
-      <h4>Hausordnung des Leo-Statz-Berufskollegs</h4>
-      <p>Die Hausordnung regelt das Verhalten auf dem Schulgelände, die Nutzung der Einrichtungen und das allgemeine Miteinander. Sie stellt sicher, dass der Schulbetrieb reibungslos und sicher verläuft und dass sich alle Schülerinnen und Schüler des Leo-Statz-Berufskollegs respektvoll und verantwortungsbewusst verhalten.</p>
-      
+    <h2>Hausordnung und EDV-Nutzungsverordnung</h2>
+<center><img src="logo_u.jpg"></center>
+    <!-- Hausordnung Akkordeon -->
+    <button class="accordion" onclick="toggleAccordion('hausordnung')">Hausordnung anzeigen</button>
+    <div id="hausordnung" class="accordion-content">
+      <h3>1. Vor Beginn des Unterrichts</h3>
       <ul>
-        <li><strong>Schulhof und Pausen:</strong> Vor Unterrichtsbeginn halten sich alle Schülerinnen und Schüler auf dem Schulhof auf. Sollte ein früherer Aufenthalt notwendig sein (z. B. bei Verkehrsschwierigkeiten), stehen spezielle Aufenthaltsräume zur Verfügung (Raum 4 im Gebäude Friedenstraße, Raum 5 im Gebäude Kirchfeldstraße), die ab 07:15 Uhr zugänglich sind.</li>
-        
-        <li><strong>Verlassen des Schulgebäudes:</strong> Das Schulgebäude darf nur im Notfall über Notausgänge verlassen werden. Es ist wichtig, dass alle Zugänge und Fluchtwege jederzeit freigehalten werden, um im Notfall eine schnelle Evakuierung zu gewährleisten.</li>
-        
-        <li><strong>Parken und Verkehr:</strong> Schülerinnen und Schüler dürfen ihre Autos nicht auf dem Schulhof abstellen. Zweiräder (z. B. Fahrräder) müssen in den dafür vorgesehenen Ständern abgestellt werden. Wir bitten alle, auf dem Schulhof Schritttempo zu fahren, um Unfälle zu vermeiden.</li>
-        
-        <li><strong>Ordnung auf dem Schulgelände:</strong> Alle Schülerinnen und Schüler sind dafür verantwortlich, dass der Schulhof und die Klassenräume ordentlich hinterlassen werden. Es gibt Papierkörbe für Abfälle, und es muss zwischen Recyclingmaterial und Restmüll unterschieden werden. Jede Klasse organisiert einen Ordnungsdienst, der dafür sorgt, dass der Raum nach jeder Unterrichtseinheit sauber hinterlassen wird.</li>
-        
-        <li><strong>Alkoholverbot und Rauchen:</strong> Auf dem gesamten Schulgelände des Leo-Statz-Berufskollegs gilt ein striktes Alkoholverbot. Ebenso ist das Rauchen auf dem Schulgelände nicht gestattet. Dies gilt für alle Innen- und Außenbereiche.</li>
-        
-        <li><strong>Mobiltelefone und elektronische Geräte:</strong> Handys, MP3-Player und andere Geräte müssen beim Betreten des Klassenraums ausgeschaltet und weggelegt werden, um Unterrichtsstörungen zu vermeiden. Diese Geräte dürfen nur mit ausdrücklicher Erlaubnis der Lehrkraft genutzt werden.</li>
-        
-        <li><strong>Verstöße:</strong> Bei wiederholten oder gravierenden Verstößen gegen die Hausordnung können Ordnungsmaßnahmen wie z. B. Hofdienst, zusätzliche Reinigungsgebühren oder andere Maßnahmen ergriffen werden. Die Schulleitung des Leo-Statz-Berufskollegs behält sich vor, auch disziplinarische Maßnahmen zu ergreifen.</li>
+        <li>Die Schülerinnen und Schüler halten sich auf dem Schulhof auf.</li>
+        <li>Für Schülerinnen und Schüler, die verkehrsbedingt vor 7:45 Uhr anwesend sein müssen, steht ein besonderer Aufenthaltsraum zur Verfügung.</li>
+        <li>In den Pausen verlassen die Schülerinnen und Schüler das Gebäude. Über Ausnahmen entscheidet die Schulleitung.</li>
+        <li>Das Verlassen des Schulgebäudes über die Notausgänge ist nur im Gefahrenfall erlaubt.</li>
+        <li>Der Schulhof kann auf eigene Gefahr verlassen werden.</li>
+        <li>Es ist unbedingt zu vermeiden, dass die Anwohner der benachbarten Häuser belästigt werden.</li>
+        <li>Bei schwerwiegenden Vorkommnissen können Ordnungsmaßnahmen beschlossen werden.</li>
       </ul>
-      <hr>
-      
-      <!-- EDV-Nutzungsverordnung -->
-      <h4>EDV-Nutzungsverordnung des Leo-Statz-Berufskollegs</h4>
-      <p>Die EDV-Nutzungsverordnung des Leo-Statz-Berufskollegs stellt sicher, dass alle Schülerinnen und Schüler die technischen Geräte in der Schule verantwortungsvoll und im Einklang mit den gesetzlichen Bestimmungen nutzen. Sie gilt für alle Computerräume und für die Nutzung der schulischen IT-Ausstattung (wie Laptops, PCs, iPads, Drucker, etc.).</p>
-
+      <h3>2. Fahrzeuge</h3>
       <ul>
-        <li><strong>Passwortschutz:</strong> Jede Schülerin und jeder Schüler erhält ein individuelles Passwort für die Nutzung der schulischen Geräte und Netzwerke. Dieses Passwort muss geheim gehalten werden. Das Weitergeben von Passwörtern (z. B. „Passwort-Sharing“) ist strikt untersagt und kann zu einer Sperrung des Benutzerkontos führen.</li>
-        
-        <li><strong>Recht auf Privatsphäre:</strong> Die Nutzung von Computern und anderen Geräten darf nur zu schulischen Zwecken erfolgen. Die Schule hat das Recht, den Datenverkehr zu überwachen und zu speichern, um Missbrauch zu verhindern. Die Privatsphäre der Schülerinnen und Schüler wird dabei gewahrt, vor allem bei der Nutzung von privaten Geräten.</li>
-        
-        <li><strong>Illegale Inhalte:</strong> Das Abrufen, Verbreiten oder Speichern illegaler Inhalte, wie urheberrechtlich geschütztem Material ohne Lizenz, pornografischen Inhalten oder Hasspropaganda, ist verboten. Verstöße gegen diese Regel führen zu einer sofortigen Sperrung des Benutzerkontos und möglicherweise zu rechtlichen Konsequenzen.</li>
-        
-        <li><strong>Verbot von Schadsoftware:</strong> Der Einsatz von Schadsoftware (z. B. Viren, Spyware) oder das unbefugte Verändern der Geräte ist untersagt. Dies führt zu sofortiger Sperrung der Zugriffsrechte und kann strafrechtliche Folgen haben.</li>
-        
-        <li><strong>Benutzung von externen Speichermedien:</strong> Das Anschließen von externen Geräten wie USB-Sticks an schulische Rechner ist nur nach Absprache mit der Lehrkraft erlaubt. Es dürfen keine Software oder Daten ohne Erlaubnis kopiert oder übertragen werden.</li>
-        
-        <li><strong>Internetnutzung:</strong> Das Surfen im Internet ist nur für schulische Zwecke erlaubt. Inhalte, die nicht für den Unterricht oder die schulische Arbeit relevant sind, dürfen nicht aufgerufen oder heruntergeladen werden. Soziale Netzwerke und private Chat-Dienste dürfen im Unterricht nicht genutzt werden.</li>
-        
-        <li><strong>Verantwortung:</strong> Die Schülerinnen und Schüler des Leo-Statz-Berufskollegs sind für die ordnungsgemäße Nutzung der Geräte und des Internets verantwortlich. Sie müssen alle Geräte nach der Benutzung ordnungsgemäß herunterfahren und sicherstellen, dass keine persönlichen Daten oder Materialien von anderen genutzt werden.</li>
+        <li>Autos der SchülerInnen dürfen nicht auf dem Schulhof abgestellt werden.</li>
+        <li>Auf dem Schulhof ist mit allen Verkehrsmitteln Schritttempo zu fahren.</li>
+        <li>Fahrräder sind in die dafür vorgesehenen Ständer zu stellen.</li>
+        <li>Alle übrigen Zweiräder sind so abzustellen, dass sie den übrigen Betrieb auf dem Schulhof nicht stören.</li>
       </ul>
-
-      <hr>
-      
-      <!-- Zusatztext zur EDV-Nutzungsordnung -->
-      <div class="alert alert-info">
-        <h5>Bestätigung der EDV-Nutzungsordnung</h5>
-        <p>Ich habe die EDV-Nutzungsordnung des Leo-Statz-Berufskollegs gelesen und verstanden. Ich werde das Computersystem und das Internet verantwortungsvoll benutzen und die Regeln jederzeit beachten.</p>
-        <p>Mit der Anerkennung der Nutzungsordnung erkläre ich mich zugleich einverstanden, dass die Schule berechtigt ist, meine persönlichen Daten im Rahmen der geltenden Datenschutzbestimmungen zu speichern.</p>
-        <p>Ich bin darüber informiert worden, dass über meine Tätigkeiten und die von mir aufgerufenen Internetseiten Logdateien geführt werden und diese für eine spätere Auswertung gespeichert werden.</p>
-        <p>Ich bin mir ebenso bewusst, dass für die Sicherheit der von mir gespeicherten Daten nicht garantiert werden kann und ich von wichtigen Daten zusätzliche Sicherheitskopien anfertigen muss.</p>
-        <p>Ich bin mir bewusst, dass Zuwiderhandlungen gegen diese EDV-Nutzungsordnung Erziehungs- / Ordnungsmaßnahmen zur Folge haben können.</p>
-      </div>
+      <h3>3. Ordnung auf dem Schulhof und in den Unterrichtsräumen</h3>
+      <ul>
+        <li>Für Papier und Abfälle müssen Papierkörbe benutzt werden.</li>
+        <li>Jede Klasse organisiert einen Ordnungsdienst, der durch die Klassenleitung eingetragen wird.</li>
+        <li>Verlässt die Klasse den Raum nicht ordentlich, so haben nachfolgende Klassen das Recht, den Raum wieder in einen ordentlichen Zustand zu bringen.</li>
+      </ul>
+      <h3>4. Weitere Regeln</h3>
+      <ul>
+        <li>Es herrscht ein striktes Alkoholverbot auf dem Schulgelände.</li>
+        <li>Während des Unterrichts darf nicht gegessen werden. Das Kauen von Kaugummi ist nicht erlaubt.</li>
+        <li>Mobiltelefone und ähnliche Geräte müssen im Unterricht abgeschaltet und weggelegt werden.</li>
+      </ul>
+      <h3>5. Rauchen</h3>
+      <ul>
+        <li>Rauchen ist auf dem Schulgelände nicht erlaubt.</li>
+      </ul>
+      <h3>6. Rauschmittel</h3>
+      <ul>
+        <li>Es ist nicht gestattet, unter Einfluss von Rauschmitteln die Schule zu betreten oder diese mitzubringen.</li>
+        <li>Bei Zuwiderhandlungen erfolgt ein sofortiger Unterrichtsausschluss.</li>
+      </ul>
+      <h3>7. Schülerausweis</h3>
+      <ul>
+        <li>Jeder Schüler muss jederzeit seinen Schülerausweis bei sich tragen.</li>
+        <li>Schulversäumnisse müssen schriftlich mitgeteilt werden.</li>
+      </ul>
+      <h3>Erzieherische Maßnahmen</h3>
+      <ul>
+        <li>Verstöße gegen diese Hausordnung führen zu erzieherischen Maßnahmen.</li>
+        <li>Dies kann z.B. die Verpflichtung zum Hofdienst oder eine Finanzbeteiligung an Reinigungskosten sein.</li>
+      </ul>
+    </div>
+    <!-- Hausordnung Toggle Switch -->
+    <div class="toggle-container">
+      <span class="toggle-label">Hausordnung gelesen:</span>
+      <input type="checkbox" id="hausordnungToggle" class="toggle-checkbox" required>
     </div>
 
-    <!-- Formular zur Bestätigung -->
-    <form action="send_email.php" method="POST">
-      <!-- Name und Klasse -->
-      <div class="form-group">
+    <!-- EDV-Nutzungsordnung Akkordeon -->
+    <button class="accordion" onclick="toggleAccordion('edv')">EDV-Nutzungsverordnung anzeigen</button>
+    <div id="edv" class="accordion-content">
+      <h3>Präambel</h3>
+      <p>Die nachfolgende Nutzungsordnung stellt wichtige Grundregeln im Umgang mit den technischen Geräten der Schule auf...</p>
+      <h3>A. Nutzungsordnung</h3>
+      <ul>
+        <li>Passwörter dürfen nicht an andere Personen weitergegeben werden.</li>
+        <li>Die Nutzung von Software, die urheberrechtlich geschützt ist, ist nur mit Genehmigung erlaubt.</li>
+        <li>Es ist verboten, pornographische oder rassistische Inhalte aufzurufen.</li>
+      </ul>
+      <h3>B. Datenschutz und Datensicherheit</h3>
+      <ul>
+        <li>Die Schule darf den Datenverkehr kontrollieren, um Missbrauch zu verhindern.</li>
+        <li>Der unbefugte Einsatz von Software wie Viren oder Spyware ist untersagt.</li>
+      </ul>
+      <h3>C. Eingriffe in Hardware und Software</h3>
+      <ul>
+        <li>Softwareinstallationen oder Änderungen an der Hardware dürfen nur nach Absprache mit der Lehrkraft vorgenommen werden.</li>
+        <li>Externe Geräte wie USB-Sticks müssen vorab genehmigt werden.</li>
+      </ul>
+      <h3>D. Schutz der Geräte und Verhalten in den Computerräumen</h3>
+      <ul>
+        <li>Essen und Trinken am Computer ist verboten, um Schäden zu vermeiden.</li>
+      </ul>
+      <h3>E. Nutzung von Informationen und Internet</h3>
+      <ul>
+        <li>Der Internetzugang darf nur für schulische Zwecke genutzt werden.</li>
+        <li>Verboten ist die unberechtigte Nutzung von Chat-Programmen und sozialen Netzwerken.</li>
+      </ul>
+    </div>
+
+    <!-- EDV-Nutzungsverordnung Toggle Switch -->
+    <div class="toggle-container">
+      <span class="toggle-label">EDV-Nutzungsverordnung gelesen:</span>
+      <input type="checkbox" id="edvToggle" class="toggle-checkbox" required>
+    </div>
+
+    <!-- Formular -->
+    <div class="form-section">
+      <h3>Formular zur Anmeldung</h3>
+      <form id="formular" action="mailto:info@leo-statz-berufskolleg.de" method="POST" enctype="multipart/form-data" target="_blank">
         <label for="name">Name</label>
-        <input type="text" class="form-control" id="name" name="name" placeholder="Ihr Name" required>
-      </div>
+        <input type="text" id="name" name="name" required>
 
-      <div class="form-group">
-        <label for="class">Klasse</label>
-        <input type="text" class="form-control" id="class" name="class" placeholder="Ihre Klasse" required>
-      </div>
-
-      <div class="form-group">
         <label for="email">E-Mail</label>
-        <input type="email" class="form-control" id="email" name="email" placeholder="Ihre E-Mail" required>
-      </div>
+        <input type="email" id="email" name="email" required>
 
-      <!-- Schuljahr -->
-      <div class="form-group">
-        <label for="schoolYear">Schuljahr</label>
-        <select class="form-control" id="schoolYear" name="schoolYear" required>
+        <label for="klasse">Klasse</label>
+        <input type="text" id="klasse" name="klasse" required>
+
+        <label for="schuljahr">Schuljahr</label>
+        <select id="schuljahr" name="schuljahr" class="form-control" required>
+          <option value="">Bitte wählen...</option>
           <option value="2025/26">2025/26</option>
           <option value="2026/27">2026/27</option>
           <option value="2027/28">2027/28</option>
           <option value="2028/29">2028/29</option>
           <option value="2029/30">2029/30</option>
         </select>
-      </div>
 
-      <!-- Bestätigung -->
-      <div class="form-check">
-        <input type="checkbox" class="form-check-input" id="agreement" name="agreement" required>
-        <label class="form-check-label" for="agreement">Ich habe die Hausordnung und die EDV-Nutzungsverordnung des Leo-Statz-Berufskollegs gelesen, verstanden und bin damit einverstanden.</label>
-      </div>
-
-      <div class="form-group text-center mt-4">
-        <button type="submit" class="btn btn-primary">Bestätigen</button>
-      </div>
-    </form>
+        <button type="submit" id="submitButton" disabled>Formular absenden</button>
+      </form>
+    </div>
   </div>
 
-  <!-- Bootstrap JS und jQuery -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    let hausordnungActivated = false;
+    let edvActivated = false;
+
+    function toggleAccordion(id) {
+      var content = document.getElementById(id);
+      var button = content.previousElementSibling;
+      content.style.display = content.style.display === "block" ? "none" : "block";
+
+      // Überprüfen, ob beide Akkordeons aktiviert sind
+      if (id === "hausordnung") {
+        hausordnungActivated = content.style.display === "block";
+      } else if (id === "edv") {
+        edvActivated = content.style.display === "block";
+      }
+
+      // Wenn beide aktiviert sind, Formular absenden möglich machen
+      if (hausordnungActivated && edvActivated) {
+        document.getElementById("submitButton").disabled = false;
+      } else {
+        document.getElementById("submitButton").disabled = true;
+      }
+    }
+
+    // Event Listener für die Toggle Switches
+    document.getElementById("hausordnungToggle").addEventListener("change", function() {
+      if (this.checked && document.getElementById("edvToggle").checked) {
+        document.getElementById("submitButton").disabled = false;
+      } else {
+        document.getElementById("submitButton").disabled = true;
+      }
+    });
+
+    document.getElementById("edvToggle").addEventListener("change", function() {
+      if (this.checked && document.getElementById("hausordnungToggle").checked) {
+        document.getElementById("submitButton").disabled = false;
+      } else {
+        document.getElementById("submitButton").disabled = true;
+      }
+    });
+  </script>
+
 </body>
 </html>
